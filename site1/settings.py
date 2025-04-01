@@ -9,13 +9,14 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-import os
 from pathlib import Path
+import os
 
-# Xác định đường dẫn gốc của dự án
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-5z#k8^pj9q!v2m$x7n%h3r&y4t_l0u*o1e@w6b+jf'
 
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY không được định nghĩa trong biến môi trường!")
 # -------------------------------
 # Cấu hình Static Files (CSS, JS, Images)
 # -------------------------------
@@ -45,8 +46,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Cấu hình chung
 # -------------------------------
 
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , '*']
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
