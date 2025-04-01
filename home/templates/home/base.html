@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Điện Nước Xuân Hạt{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">Điện Nước Xuân Hạt</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/services/">Dịch vụ</a></li>
+            <li><a href="/products/">Sản phẩm</a></li>
+            <li><a href="/contact/">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Điện Nước Xuân Hạt. Hotline: 0836493228 - Địa chỉ: An Bình, Dĩ An, Bình Dương</p>
+    </footer>
+</body>
+</html>

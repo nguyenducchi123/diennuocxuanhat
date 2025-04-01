@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif !important;
+    background-color: #f8f9fa !important;
+}
+
+h1 {
+    color: #007bff !important;
+}
+
+.navbar-brand {
+    font-weight: bold !important;
+}
+
+.container {
+    max-width: 900px;
+}
