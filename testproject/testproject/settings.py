@@ -22,7 +22,7 @@ if not os.getenv('SECRET_KEY'):
     raise ValueError("SECRET_KEY không được định nghĩa trong biến môi trường!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # Tắt debug cho sản xuất trên Render
+DEBUG = True  # Tắt debug cho sản xuất trên Render
 
 # Thêm domain Render (thay 'your-render-url' bằng URL thực tế từ Render)
 ALLOWED_HOSTS = ['kythuandienxuanhat.onrender.com', 'localhost', '127.0.0.1']

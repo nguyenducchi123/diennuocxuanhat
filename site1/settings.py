@@ -14,8 +14,8 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-if not SECRET_KEY:
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-%%hh2ojf_2*-mmx+#-=hco_mg-&et#@_2d2r23-ora=80xd&ot')
+if not os.getenv('SECRET_KEY'):
     raise ValueError("SECRET_KEY không được định nghĩa trong biến môi trường!")
 # -------------------------------
 # Cấu hình Static Files (CSS, JS, Images)
