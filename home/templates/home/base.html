@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
+    <header>
         <div class="navbar-brand">
-            <a href="/">Điện Nước Xuân Hạt</a>
+            <h1><a href="/">Điện Nước Xuân Hạt</a></h1>
         </div>
-        <ul class="nav-links">
-            <li><a href="/">Trang chủ</a></li>
-            <li><a href="/services/">Dịch vụ</a></li>
-            <li><a href="/products/">Sản phẩm</a></li>
-            <li><a href="/contact/">Liên hệ</a></li>
-        </ul>
-    </nav>
-
-    <!-- Nội dung chính -->
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
-
-    <!-- Footer -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/dich-vu/">Dịch vụ</a></li>
+                <li><a href="/san-pham/">Sản phẩm</a></li>
+                <li><a href="/lien-he/">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}{% endblock %}
     <footer class="footer">
-        <p>&copy; 2025 Điện Nước Xuân Hạt. Hotline: 0836493228 - Địa chỉ: An Bình, Dĩ An, Bình Dương</p>
+        <p>© 2025 Điện Nước Xuân Hạt. Hotline: 0836493228 - Địa chỉ: An Bình, Đi An, Bình Dương</p>
     </footer>
 </body>
 </html>
