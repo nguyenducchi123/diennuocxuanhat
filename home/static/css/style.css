@@ -2,24 +2,47 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
     color: #333;
 }
-header {
-    background-color: #007BFF;
-    color: white;
+.header {
+    background-color: #fff;
+    border-bottom: 2px solid #FF0000;
     padding: 10px 0;
-    text-align: center;
 }
-.navbar-brand h1 a {
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.logo {
+    height: 50px;
+}
+.slogan {
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1;
+    text-align: center;
+    padding: 0 20px;
+}
+.hotline .hotline-btn {
+    background-color: #FFA500;
     color: white;
     text-decoration: none;
-    font-size: 24px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+.navbar {
+    background-color: #FF0000;
+    padding: 10px 0;
 }
 .navbar ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
 }
@@ -32,7 +55,7 @@ header {
     font-size: 16px;
 }
 .navbar ul li a:hover {
-    color: #ddd;
+    color: #FFA500;
 }
 .container {
     max-width: 800px;
@@ -50,7 +73,5 @@ footer {
     padding: 10px 0;
     background-color: #007BFF;
     color: white;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    margin-top: 20px;
 }

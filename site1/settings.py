@@ -21,16 +21,10 @@ if not SECRET_KEY:
 # Cấu hình Static Files (CSS, JS, Images)
 # -------------------------------
 
-# Đường dẫn URL dùng để truy cập file tĩnh (các file như CSS, JS)
 STATIC_URL = '/static/'
-
-# Thư mục chứa các file tĩnh trong quá trình phát triển
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home/static'),  # Thư mục chứa file tĩnh của app "home"
-]
-
-# Nơi thu thập file tĩnh khi chạy `collectstatic` (chỉ dùng khi deploy)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'home/static')]
+
 
 # -------------------------------
 # Cấu hình Media Files (Hình ảnh upload)

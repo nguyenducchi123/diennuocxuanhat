@@ -8,16 +8,23 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header>
-        <div class="navbar-brand">
-            <h1><a href="/">Điện Nước Xuân Hạt</a></h1>
+    <header class="header">
+        <div class="header-top">
+            <img src="{% static 'images/logo.jpg' %}" alt="Điện Nước Xuân Hạt Logo" class="logo">
+            <div class="slogan">
+                chuyên cung cấp dịch vụ sửa điện nước, sửa máy bơm, thông tắc công, thi công chống thấm dột, sửa chữa nhà uy tín
+            </div>
+            <div class="hotline">
+                <a href="tel:0909123456" class="hotline-btn">0909 123 456</a>
+                <a href="tel:0836493228" class="hotline-btn">0836 493 228</a>
+            </div>
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="/">Trang chủ</a></li>
-                <li><a href="/dich-vu/">Dịch vụ</a></li>
-                <li><a href="/san-pham/">Sản phẩm</a></li>
-                <li><a href="/lien-he/">Liên hệ</a></li>
+                <li><a href="{% url 'home' %}">Trang chủ</a></li>
+                <li><a href="{% url 'gioi-thieu' %}">Giới thiệu</a></li>
+                <li><a href="{% url 'dich-vu' %}">Dịch vụ điện nước</a></li>
+                <li><a href="{% url 'san-pham' %}">Sản phẩm</a></li>
             </ul>
         </nav>
     </header>

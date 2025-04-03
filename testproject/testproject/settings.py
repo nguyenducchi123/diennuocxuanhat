@@ -25,7 +25,7 @@ if not os.getenv('SECRET_KEY'):
 DEBUG = False  # Tắt debug cho sản xuất trên Render
 
 # Thêm domain Render (thay 'your-render-url' bằng URL thực tế từ Render)
-ALLOWED_HOSTS = ['your-render-url.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['kythuandienxuanhat.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -99,9 +99,9 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Thêm để thu thập tệp tĩnh
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'home/static')]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
