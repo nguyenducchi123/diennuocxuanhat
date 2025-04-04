@@ -1,24 +1,25 @@
 from pathlib import Path
+from django.conf import settings
 import os
 from dotenv import load_dotenv
 import dj_database_url
 
-# Đọc biến môi trường từ .env
-load_dotenv()
-
-# Đường dẫn gốc của dự án
+# Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Key bí mật cho Django
-SECRET_KEY = os.getenv('SECRET_KEY', 'your_default_secret_key')
+# Load .env file
+load_dotenv()
 
-# Chế độ debug: False khi deploy
-DEBUG = os.getenv("DEBUG", "True") == "True"
+# Secret key
+SECRET_KEY = os.getenv('SECRET_KEY', 'your-default-secret-key')
 
-# Danh sách host được phép truy cập
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+# Debug mode
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-# Cài đặt ứng dụng
+# Allowed hosts
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,site1-gmor.onrender.com').split(',')
+
+# Installed apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,7 +33,7 @@ INSTALLED_APPS = [
 # Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Thêm cho static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ⚠️ Quan trọng cho static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -43,6 +44,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'site1.urls'
 
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -61,20 +63,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'site1.wsgi.application'
 
-# Cơ sở dữ liệu mặc định (SQLite)
+# Database (Render sử dụng DATABASE_URL)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
+        conn_max_age=600,
+        ssl_require=not DEBUG
+    )
 }
 
-# Ghi đè cấu hình nếu có DATABASE_URL (Render cung cấp PostgreSQL)
-db_from_env = dj_database_url.config()
-if db_from_env:
-    DATABASES['default'] = db_from_env
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'home/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # ⚠️
 
-# Password validator
+# Media files (Uploaded images)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -90,28 +98,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Ngôn ngữ và múi giờ
+# Internationalization
 LANGUAGE_CODE = 'vi'
 TIME_ZONE = 'Asia/Ho_Chi_Minh'
 USE_I18N = True
 USE_TZ = True
 
-# File static (CSS, JS...)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'home/static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Dùng WhiteNoise để quản lý static files khi deploy
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# File media (hình ảnh upload)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Cấu hình primary key mặc định
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Ghi log ra file và console
+# Logging (tuỳ chọn)
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -119,18 +115,15 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug.log'),
+            'filename': BASE_DIR / 'debug.log',
         },
         'console': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
         },
     },
-    'loggers': {
-        '': {
-            'handlers': ['file', 'console'],
-            'level': 'INFO',
-            'propagate': True,
-        },
+    'root': {
+        'handlers': ['file', 'console'],
+        'level': 'INFO',
     },
 }
