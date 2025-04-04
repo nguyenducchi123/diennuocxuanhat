@@ -22,6 +22,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Cấu hình chung
 DEBUG = False # Đổi thành False khi triển khai
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://site1-gmor.onrender.com']
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 INSTALLED_APPS = [
