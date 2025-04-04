@@ -1,4 +1,8 @@
 from pathlib import Path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
+from django.contrib import admin
 from dotenv import load_dotenv
 import os
 import dj_database_url
@@ -21,9 +25,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Cấu hình chung
-DEBUG = False # Đổi thành False khi triển khai
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://site1-gmor.onrender.com']
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+DEBUG = True  # Đổi thành False khi triển khai
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,site1-gmor.onrender.com').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
