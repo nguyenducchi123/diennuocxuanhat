@@ -14,9 +14,8 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-%%hh2ojf_2*-mmx+#-=hco_mg-&et#@_2d2r23-ora=80xd&ot')
-if not os.getenv('SECRET_KEY'):
-    raise ValueError("SECRET_KEY không được định nghĩa trong biến môi trường!")
+# Thêm key tạm thời (nên thay bằng key ngẫu nhiên sau)
+SECRET_KEY = 'your_temporary_secret_key_here'
 # -------------------------------
 # Cấu hình Static Files (CSS, JS, Images)
 # -------------------------------
@@ -41,7 +40,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # -------------------------------
 
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
