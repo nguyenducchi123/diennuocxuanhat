@@ -21,8 +21,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Cấu hình chung
-DEBUG = True  # Đổi thành False khi triển khai
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'xuanhat-site1.onrender.com']
+DEBUG = False # Đổi thành False khi triển khai
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
