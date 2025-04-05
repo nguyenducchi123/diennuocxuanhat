@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: site1-web
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn site1.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: site1.settings
+      - key: PYTHON_VERSION
+        value: 3.11

@@ -4,6 +4,8 @@ import os
 from dotenv import load_dotenv
 import dj_database_url
 
+
+
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+WHITENOISE_ROOT = BASE_DIR / 'staticfiles'
 
 ROOT_URLCONF = 'site1.urls'
 
@@ -66,9 +69,7 @@ WSGI_APPLICATION = 'site1.wsgi.application'
 # Database (Render sử dụng DATABASE_URL)
 DATABASES = {
     'default': dj_database_url.config(
-        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
-        conn_max_age=600,
-        ssl_require=not DEBUG
+        default=os.getenv('DATABASE_URL')
     )
 }
 
