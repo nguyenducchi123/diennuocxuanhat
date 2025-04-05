@@ -3,7 +3,7 @@ services:
     name: site1-web
     env: python
     buildCommand: ""
-    startCommand: gunicorn site1.wsgi
+    startCommand: gunicorn site1.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: site1.settings
