@@ -12,15 +12,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Load .env file
 load_dotenv()
 
-# Secret key
-SECRET_KEY = os.getenv('SECRET_KEY', 'your-default-secret-key')
-
+SECRET_KEY = 'your-secret-key-here'
 # Debug mode
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 # Allowed hosts
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,site1-gmor.onrender.com').split(',')
-
+ALLOWED_HOSTS = ['diennuocxuanhat.onrender.com', 'localhost', '127.0.0.1']
 # Installed apps
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -76,9 +73,9 @@ DATABASES = {
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'home/static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # ⚠️
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+WHITENOISE_USE_FINDERS = True
 
 # Media files (Uploaded images)
 MEDIA_URL = '/media/'
