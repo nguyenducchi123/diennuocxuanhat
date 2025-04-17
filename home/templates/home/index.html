@@ -4,13 +4,158 @@
 {% block title %}Trang Chủ - Điện Nước Xuân Hạt{% endblock %}
 
 {% block content %}
+<style>
+    /* Container Styles */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "images/electrician.jpg" %}') center/cover no-repeat;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .hero-section p {
+        font-size: 1.2em;
+        max-width: 800px;
+        line-height: 1.6;
+    }
+
+    /* Services List */
+    .services-list {
+        margin: 20px 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .services-list li {
+        font-size: 1.1em;
+        padding: 10px 20px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        color: #34495e;
+        transition: background-color 0.3s ease;
+    }
+    .services-list li:hover {
+        background-color: #d32f2f; /* Đồng bộ với màu menu đỏ */
+        color: white;
+    }
+
+    /* About Section */
+    .about-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 40px 0;
+    }
+    .about-image img {
+        max-width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+    .about-image img:hover {
+        transform: scale(1.05);
+    }
+    .about-content {
+        max-width: 600px;
+        padding-left: 30px;
+    }
+    .about-content h2 {
+        font-size: 2.2em;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #d32f2f; /* Đồng bộ với màu menu đỏ */
+        padding-bottom: 10px;
+    }
+    .about-content p {
+        font-size: 1.1em;
+        color: #34495e;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    .about-content p strong {
+        color: #2c3e50;
+    }
+    .about-content .highlight {
+        color: #d32f2f; /* Đồng bộ với màu menu đỏ */
+        font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-section {
+            height: 300px;
+        }
+        .hero-section h1 {
+            font-size: 1.8em;
+        }
+        .hero-section p {
+            font-size: 1em;
+        }
+        .services-list {
+            flex-direction: column;
+            align-items: center;
+        }
+        .about-section {
+            flex-direction: column;
+            text-align: center;
+        }
+        .about-content {
+            padding-left: 0;
+            padding-top: 20px;
+        }
+    }
+</style>
+
 <div class="container">
-    <h1>Chào mừng đến với Điện Nước Xuân Hạt</h1>
-    <p>chuyên cung cấp dịch vụ sửa điện nước, sửa máy bơm, thông tắc công, thi công chống thấm dột, sửa chữa nhà uy tín</p>
-    <img src="{% static 'images/electrician.jpg' %}" alt="Dịch vụ điện nước" style="max-width: 100%; margin: 20px 0;">
-    <ul>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Chào mừng đến với Điện Nước Xuân Hạt</h1>
+        <p>Chuyên cung cấp dịch vụ sửa điện nước, sửa máy bơm, thông tắc cống, thi công chống thấm dột, sửa chữa nhà uy tín.</p>
+    </div>
+
+    <!-- Services List -->
+    <ul class="services-list">
         <li>Dịch vụ sửa chữa điện nước</li>
         <li>Sản phẩm chất lượng cao</li>
     </ul>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-image">
+            <img src="{% static 'images/chung-toi.jpg' %}" alt="Về Chúng Tôi">
+        </div>
+        <div class="about-content">
+            <h2>VỀ CHÚNG TÔI</h2>
+            <p>“Chúng tôi chuyên cung cấp dịch vụ thi công hệ thống điện nước cho nhà phố, biệt thự với đội ngũ kỹ thuật lành nghề, cam kết chất lượng và tiến độ.”</p>
+            <p><strong>Tầm nhìn:</strong> Trở thành đơn vị thi công điện nước hàng đầu tại khu vực.</p>
+            <p><strong>Sứ mệnh:</strong> Mang đến hệ thống điện nước an toàn, bền bỉ và thẩm mỹ.</p>
+            <p class="highlight">Giá trị cốt lõi: Uy tín – Chất lượng – Tiến độ – Bảo hành tốt.</p>
+        </div>
+    </section>
 </div>
 {% endblock %}

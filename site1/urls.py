@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include  # Đảm bảo import include
 from django.conf import settings
-
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),  # Bao gồm các URL từ ứng dụng home
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
