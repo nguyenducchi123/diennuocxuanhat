@@ -105,6 +105,53 @@
         font-weight: bold;
     }
 
+    /* Projects Section */
+    .projects-section {
+        padding: 40px 0;
+        background-color: #f9f9f9;
+    }
+    .projects-section h2 {
+        text-align: center;
+        font-size: 2.5em;
+        color: #2c3e50;
+        margin-bottom: 40px;
+        border-bottom: 3px solid #d32f2f; /* Đồng bộ với màu menu đỏ */
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+    }
+    .project-item {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .project-item:hover {
+        transform: translateY(-5px);
+    }
+    .project-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid #d32f2f;
+    }
+    .project-content {
+        padding: 15px;
+        text-align: center;
+    }
+    .project-content p {
+        font-size: 1em;
+        color: #34495e;
+        margin: 0;
+        line-height: 1.5;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
         .hero-section {
@@ -155,6 +202,58 @@
             <p><strong>Tầm nhìn:</strong> Trở thành đơn vị thi công điện nước hàng đầu tại khu vực.</p>
             <p><strong>Sứ mệnh:</strong> Mang đến hệ thống điện nước an toàn, bền bỉ và thẩm mỹ.</p>
             <p class="highlight">Giá trị cốt lõi: Uy tín – Chất lượng – Tiến độ – Bảo hành tốt.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <h2>DỰ ÁN TIÊU BIỂU</h2>
+        <div class="projects-grid">
+            <!-- Dự án 1 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="{% static 'images/thanh-tin-2023.jpg' %}" alt="Khách sạn Thành Tín 2023">
+                </div>
+                <div class="project-content">
+                    <p>2023 – Khách sạn Thành Tín</p>
+                </div>
+            </div>
+            <!-- Dự án 2 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="{% static 'images/bong-son-2023.jpg' %}" alt="Bệnh viện Bồng Sơn 2023">
+                </div>
+                <div class="project-content">
+                    <p>2023 – Bệnh viện đa khoa Khu vực Bồng Sơn thị xã Hoài Nhơn</p>
+                </div>
+            </div>
+            <!-- Dự án 3 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="{% static 'images/tien-giang-2025.jpg' %}" alt="Tiền Giang 2025">
+                </div>
+                <div class="project-content">
+                    <p>2025 – Công trình nhà phố Tiền Giang</p>
+                </div>
+            </div>
+            <!-- Dự án 4 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="{% static 'images/hcm-2025.jpg' %}" alt="HCM 2025">
+                </div>
+                <div class="project-content">
+                    <p>2025 – Công trình nhà phố TP HCM</p>
+                </div>
+            </div>
+            <!-- Dự án 5 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="{% static 'images/huyenhon-2024.jpg' %}" alt="Huyện Hòn 2024">
+                </div>
+                <div class="project-content">
+                    <p>2024 – Trung tâm y tế huyện Hoài Nhơn</p>
+                </div>
+            </div>
         </div>
     </section>
 </div>
