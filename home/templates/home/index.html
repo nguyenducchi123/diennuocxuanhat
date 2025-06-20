@@ -151,7 +151,84 @@
         margin: 0;
         line-height: 1.5;
     }
-
+    /* Services Provided Section */
+    .services-provided-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 40px 0;
+    }
+    .services-provided-image img {
+        max-width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+    .services-provided-image img:hover {
+        transform: scale(1.05);
+    }
+    .services-provided-content {
+        max-width: 600px;
+        padding-left: 30px;
+    }
+    .services-provided-content h2 {
+        font-size: 2.2em;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #d32f2f; /* Đồng bộ với màu menu đỏ */
+        padding-bottom: 10px;
+    }
+    .services-provided-content ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .services-provided-content li {
+        font-size: 1.1em;
+        color: #34495e;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 20px;
+    }
+    .services-provided-content li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #d32f2f; /* Đồng bộ với màu menu đỏ */
+        font-size: 1.5em;
+    }
+    @media (max-width: 768px) {
+        .services-provided-section {
+            flex-direction: column;
+            text-align: center;
+        }
+        .services-provided-content {
+            padding-left: 0;
+            padding-top: 20px;
+        }
+    }
+    /* Below Services Image Section */
+    .below-services-image-section {
+        text-align: center;
+        margin: 40px 0;
+    }
+    .below-services-image-section img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .below-services-image-section img:hover {
+        transform: scale(1.05);
+    }
+    @media (max-width: 768px) {
+        .below-services-image-section img {
+            width: 90%;
+        }
+    }
     /* Responsive Design */
     @media (max-width: 768px) {
         .hero-section {
@@ -253,6 +330,25 @@
                 <div class="project-content">
                     <p>2024 – Trung tâm y tế huyện Hoài Nhơn</p>
                 </div>
+            </div>
+        </section>
+        <section class="services-provided-section">
+            <div class="services-provided-image">
+                <img src="{% static 'images/dich-vu-cung-cap.jpg' %}" alt="Dịch Vụ Cung Cấp">
+            </div>
+            <div class="services-provided-content">
+                <h2>DỊCH VỤ CUNG CẤP</h2>
+                <ul>
+                    <li>Thi công điện nước mới: Đi dây điện âm tường, lắp đặt ống nước, thiết bị điện.</li>
+                    <li>Thi công mới hệ thống ME.</li>
+                    <li>Sửa chữa cắt tạo hệ thống điện nước nhà phố biệt thự chuẩn.</li>
+                    <li>Cải tạo, sửa chữa hệ thống điện nước: Thay mới, xử lý sự cố rò rỉ, chập điện.</li>
+                    <li>Lọc nước phèn giếng khoan.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="below-services-image-section">
+            <img src="{% static 'images/below-services.jpg' %}" alt="Hình ảnh minh họa dưới Dịch Vụ Cung Cấp">
             </div>
         </div>
     </section>
